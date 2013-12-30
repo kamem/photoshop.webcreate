@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<photoshop-keyboard-shortcuts version="4" filename="$$$/FileName/Presets/KeyboardCustomization/webCreatekys_cc=webCreate kys_cc" modified="1">
+	<command kind="dynamic" name="Script_LayerName2">
+		<shortcut>Shift+Cmd+R</shortcut>
+	</command>
+	<command kind="dynamic" name="Script_LayerName">
+		<shortcut>Cmd+R</shortcut>
+	</command>
+	<command kind="dynamic" name="Script_kadomaruSelect">
+		<shortcut>Control+Cmd+Q</shortcut>
+	</command>
+	<command kind="dynamic" name="Script_colorPicker">
+		<shortcut>F4</shortcut>
+	</command>
+	<command kind="dynamic" name="Vanishing Point">
+		<shortcut>Opt+Cmd+V</shortcut>
+	</command>
+	<command kind="dynamic" name="Liquify">
+		<shortcut>Shift+Cmd+X</shortcut>
+	</command>
+	<command kind="static" id="10" name="新規...">
+		<shortcut>Cmd+N</shortcut>
+	</command>
+	<command kind="static" id="20" name="開く...">
+		<shortcut>Cmd+O</shortcut>
+	</command>
+	<command kind="static" id="30" name="保存">
+		<shortcut>Cmd+S</shortcut>
+	</command>
+	<command kind="static" id="31" name="閉じる">
+		<shortcut>Cmd+W</shortcut>
+	</command>
+	<command kind="static" id="33" name="別名で保存...">
+		<shortcut>Shift+Cmd+S</shortcut>
+		<shortcut>Opt+Cmd+S</shortcut>
+	</command>
+	<command kind="static" id="34" name="復帰">
+		<shortcut>F12</shortcut>
+	</command>
+	<command kind="static" id="37" name="すべてを閉じる">
+		<shortcut>Opt+Cmd+W</shortcut>
+	</command>
+	<command kind="static" id="101" name="取り消し">
+		<shortcut>Opt+Shift+Cmd+Z</shortcut>
+	</command>
+	<command kind="static" id="103" name="カット">
+		<shortcut>Cmd+X</shortcut>
+		<shortcut>F2</shortcut>
+	</command>
+	<command kind="static" id="104" name="コピー">
+		<shortcut>Cmd+C</shortcut>
+		<shortcut>F3</shortcut>
+	</command>
+	<command kind="static" id="105" name="ペースト">
+		<shortcut>Cmd+V</shortcut>
+	</command>
+	<command kind="static" id="177" name="1 部プリント">
+		<shortcut>Opt+Shift+Cmd+P</shortcut>
+	</command>
+	<command kind="static" id="1004" name="ズームイン">
+		<shortcut>Cmd++</shortcut>
+		<shortcut>Cmd+;</shortcut>
+	</command>
+	<command kind="static" id="1005" name="ズームアウト">
+		<shortcut>Cmd+-</shortcut>
+	</command>
+	<command kind="static" id="1016" name="選択を解除">
+		<shortcut>Cmd+D</shortcut>
+	</command>
+	<command kind="static" id="1017" name="すべてを選択">
+		<shortcut>Cmd+A</shortcut>
+	</command>
+	<command kind="static" id="1018" name="選択範囲を反転">
+		<shortcut>Shift+Cmd+I</shortcut>
+		<shortcut>Shift+F7</shortcut>
+	</command>
+	<command kind="static" id="1019" name="フィルターの再実行">
+		<shortcut>Cmd+F</shortcut>
+	</command>
+	<command kind="static" id="1030" name="画像解像度...">
+		<shortcut>Opt+Cmd+I</shortcut>
+	</command>
+	<command kind="static" id="1031" name="カンバスサイズ...">
+		<shortcut>Opt+Cmd+C</shortcut>
+	</command>
+	<command kind="static" id="1036" name="境界をぼかす...">
+		<shortcut>Shift+F6</shortcut>
+	</command>
+	<command kind="static" id="1040" name="選択範囲内へペースト">
+		<shortcut>Opt+Shift+Cmd+V</shortcut>
+	</command>
+	<command kind="static" id="1042" name="塗りつぶし...">
+		<shortcut>Shift+F5</shortcut>
+	</command>
+	<command kind="static" id="1046" name="カラー">
+		<shortcut>F6</shortcut>
+	</command>
+	<command kind="static" id="1055" name="情報">
+		<shortcut>F8</shortcut>
+	</command>
+	<command kind="static" id="1098" name="レイヤー">
+		<shortcut>F7</shortcut>
+	</command>
+	<command kind="static" id="1099" name="レイヤー...">
+		<shortcut>Shift+Cmd+N</shortcut>
+	</command>
+	<command kind="static" id="1105" name="色の校正">
+		<shortcut>Cmd+Y</shortcut>
+	</command>
+	<command kind="static" id="1106" name="色域外警告">
+		<shortcut>Shift+Cmd+Y</shortcut>
+	</command>
+	<command kind="static" id="1107" name="結合部分をコピー">
+		<shortcut>Opt+Shift+Cmd+C</shortcut>
+	</command>
+	<command kind="static" id="1115" name="マスクを調整...">
+		<shortcut>Opt+Cmd+R</shortcut>
+	</command>
+	<command kind="static" id="1137" name="ファイル情報...">
+		<shortcut>Opt+Shift+Cmd+I</shortcut>
+	</command>
+	<command kind="static" id="1139" name="表示レイヤーを結合">
+		<shortcut>Shift+Cmd+E</shortcut>
+	</command>
+	<command kind="static" id="1154" name="フェード...">
+		<shortcut>Shift+Cmd+F</shortcut>
+	</command>
+	<command kind="static" id="1166" name="下のレイヤーと結合">
+		<shortcut>Cmd+E</shortcut>
+	</command>
+	<command kind="static" id="1170" name="アクション">
+		<shortcut>Opt+F9</shortcut>
+		<shortcut>F9</shortcut>
+	</command>
+	<command kind="static" id="1190" name="100%">
+		<shortcut>Cmd+1</shortcut>
+		<shortcut>Opt+Cmd+0</shortcut>
+	</command>
+	<command kind="static" id="1192" name="画面サイズに合わせる">
+		<shortcut>Cmd+0</shortcut>
+	</command>
+	<command kind="static" id="1301" name="ドロップシャドウ...">
+		<shortcut>Shift+Cmd+B</shortcut>
+	</command>
+	<command kind="static" id="1313" name="境界線...">
+		<shortcut>Opt+Shift+Cmd+B</shortcut>
+	</command>
+	<command kind="static" id="1314" name="レイヤースタイルをコピー">
+		<shortcut>Shift+Cmd+C</shortcut>
+	</command>
+	<command kind="static" id="1315" name="レイヤースタイルをペースト">
+		<shortcut>Shift+Cmd+V</shortcut>
+	</command>
+	<command kind="static" id="1331" name="レイヤー効果...">
+		<shortcut>Cmd+B</shortcut>
+	</command>
+	<command kind="static" id="1520" name="Bridge で参照...">
+		<shortcut>Opt+Cmd+O</shortcut>
+		<shortcut>Shift+Cmd+O</shortcut>
+	</command>
+	<command kind="static" id="1530" name="閉じて Bridge を起動...">
+		<shortcut>Shift+Cmd+W</shortcut>
+	</command>
+	<command kind="static" id="1695" name="Web 用に保存...">
+		<shortcut>Opt+Shift+Cmd+S</shortcut>
+	</command>
+	<command kind="static" id="1701" name="階調の反転">
+		<shortcut>Cmd+I</shortcut>
+	</command>
+	<command kind="static" id="1801" name="レベル補正...">
+		<shortcut>Cmd+L</shortcut>
+	</command>
+	<command kind="static" id="1805" name="色相・彩度...">
+		<shortcut>Cmd+U</shortcut>
+	</command>
+	<command kind="static" id="1808" name="自動トーン補正">
+		<shortcut>Shift+Cmd+L</shortcut>
+	</command>
+	<command kind="static" id="1809" name="彩度を下げる">
+		<shortcut>Shift+Cmd+U</shortcut>
+	</command>
+	<command kind="static" id="1810" name="自動コントラスト">
+		<shortcut>Opt+Shift+Cmd+L</shortcut>
+	</command>
+	<command kind="static" id="1943" name="再選択">
+		<shortcut>Shift+Cmd+D</shortcut>
+	</command>
+	<command kind="static" id="1961" name="1 段階戻る">
+		<shortcut>Cmd+Z</shortcut>
+	</command>
+	<command kind="static" id="1962" name="1 段階進む">
+		<shortcut>Shift+Cmd+Z</shortcut>
+	</command>
+	<command kind="static" id="2101" name="プリント...">
+		<shortcut>Cmd+P</shortcut>
+	</command>
+	<command kind="static" id="2207" name="自由変形">
+		<shortcut>Cmd+T</shortcut>
+	</command>
+	<command kind="static" id="2217" name="再実行">
+		<shortcut>Shift+Cmd+T</shortcut>
+	</command>
+	<command kind="static" id="2311" name="一般...">
+		<shortcut>Cmd+K</shortcut>
+	</command>
+	<command kind="static" id="2344" name="カラー設定...">
+		<shortcut>Shift+Cmd+K</shortcut>
+	</command>
+	<command kind="static" id="2711" name="最前面へ">
+		<shortcut>Shift+Cmd+]</shortcut>
+	</command>
+	<command kind="static" id="2712" name="前面へ">
+		<shortcut>Cmd+]</shortcut>
+	</command>
+	<command kind="static" id="2713" name="背面へ">
+		<shortcut>Cmd+[</shortcut>
+	</command>
+	<command kind="static" id="2714" name="最背面へ">
+		<shortcut>Shift+Cmd+[</shortcut>
+	</command>
+	<command kind="static" id="2860" name="計測値を記録">
+		<shortcut>Shift+Cmd+M</shortcut>
+	</command>
+	<command kind="static" id="2940" name="ガイドをロック">
+		<shortcut>Opt+Cmd+:</shortcut>
+	</command>
+	<command kind="static" id="2958" name="レイヤーをグループ化">
+		<shortcut>Cmd+G</shortcut>
+	</command>
+	<command kind="static" id="2959" name="レイヤーのグループ解除">
+		<shortcut>Shift+Cmd+G</shortcut>
+	</command>
+	<command kind="static" id="2962" name="すべてのレイヤー">
+		<shortcut>Opt+Cmd+A</shortcut>
+	</command>
+	<command kind="static" id="2970" name="選択範囲をコピーしたシェイプレイヤー">
+		<shortcut>Cmd+J</shortcut>
+	</command>
+	<command kind="static" id="2971" name="選択範囲をカットしたシェイプレイヤー">
+		<shortcut>Shift+Cmd+J</shortcut>
+	</command>
+	<command kind="static" id="2972" name="クリッピングマスクを作成">
+		<shortcut>Opt+Cmd+G</shortcut>
+	</command>
+	<command kind="static" id="3500" name="エクストラ">
+		<shortcut>Cmd+H</shortcut>
+	</command>
+	<command kind="static" id="3502" name="ターゲットパス">
+		<shortcut>Shift+Cmd+H</shortcut>
+	</command>
+	<command kind="static" id="3503" name="ガイド">
+		<shortcut>Cmd+:</shortcut>
+	</command>
+	<command kind="static" id="3504" name="グリッド">
+		<shortcut>Cmd+@</shortcut>
+	</command>
+	<command kind="static" id="3520" name="スナップ">
+		<shortcut>Shift+Cmd+:</shortcut>
+	</command>
+	<command kind="static" id="5980" name="キーボードショートカット...">
+		<shortcut>Opt+Shift+Cmd+K</shortcut>
+	</command>
+	<command kind="static" id="5982" name="メニュー...">
+		<shortcut>Opt+Shift+Cmd+M</shortcut>
+	</command>
+	<command kind="static" id="6384" name="選択範囲内">
+		<shortcut>Opt+Cmd+X</shortcut>
+	</command>
+	<command kind="static" id="6386" name="すべての領域を表示">
+		<shortcut>Opt+Shift+Cmd+X</shortcut>
+	</command>
+	<tool name="移動ツール" type="1" key="1819113074">V</tool>
+	<tool name="長方形選択ツール" type="1" key="1919380852">M</tool>
+	<tool name="楕円形選択ツール" type="1" key="1701604724">M</tool>
+	<tool name="一行選択ツール" type="1" key="1936878964"></tool>
+	<tool name="一列選択ツール" type="1" key="1935895924"></tool>
+	<tool name="なげなわツール" type="1" key="1818325871">L</tool>
+	<tool name="多角形選択ツール" type="1" key="1885826926">L</tool>
+	<tool name="マグネット選択ツール" type="1" key="1835819379">L</tool>
+	<tool name="クイック選択ツール" type="1" key="1902867308">W</tool>
+	<tool name="自動選択ツール" type="1" key="2002873956">W</tool>
+	<tool name="スポイトツール" type="1" key="1702454628">I</tool>
+	<tool name="3D マテリアルスポイトツール" type="1" key="860115789"></tool>
+	<tool name="カラーサンプラーツール" type="1" key="1668246643">I</tool>
+	<tool name="ものさしツール" type="1" key="1835360596">I</tool>
+	<tool name="注釈ツール" type="1" key="1417180225">I</tool>
+	<tool name="カウントツール" type="1" key="1668248942">I</tool>
+	<tool name="切り抜きツール" type="1" key="1668444016">C</tool>
+	<tool name="遠近法の切り抜きツール" type="1" key="1885565552"></tool>
+	<tool name="スライスツール" type="1" key="1399612244">C</tool>
+	<tool name="スライス選択ツール" type="1" key="1399608148">C</tool>
+	<tool name="スポット修復ブラシツール" type="1" key="1936746562">J</tool>
+	<tool name="修復ブラシツール" type="1" key="1937010029">J</tool>
+	<tool name="パッチツール" type="1" key="1886675816">J</tool>
+	<tool name="コンテンツに応じた移動ツール" type="1" key="1919118704"></tool>
+	<tool name="赤目修正ツール" type="1" key="1919182201">J</tool>
+	<tool name="ブラシツール" type="1" key="1886286946">B</tool>
+	<tool name="鉛筆ツール" type="1" key="1885695587">B</tool>
+	<tool name="色の置き換えツール" type="1" key="1668440692">B</tool>
+	<tool name="混合ブラシツール" type="1" key="2003137634">B</tool>
+	<tool name="コピースタンプツール" type="1" key="1937006957">S</tool>
+	<tool name="パターンスタンプツール" type="1" key="1937010032">S</tool>
+	<tool name="ヒストリーブラシツール" type="1" key="1752396866">Y</tool>
+	<tool name="アートヒストリーブラシツール" type="1" key="1634230900">Y</tool>
+	<tool name="消しゴムツール" type="1" key="1701994867">E</tool>
+	<tool name="背景消しゴムツール" type="1" key="1936028257">E</tool>
+	<tool name="マジック消しゴムツール" type="1" key="1835364961">E</tool>
+	<tool name="グラデーションツール" type="1" key="1651401812">G</tool>
+	<tool name="塗りつぶしツール" type="1" key="1651860331">G</tool>
+	<tool name="3D マテリアルドロップツール" type="1" key="860111949"></tool>
+	<tool name="ぼかしツール" type="1" key="1651275122"></tool>
+	<tool name="シャープツール" type="1" key="1936220530"></tool>
+	<tool name="指先ツール" type="1" key="1936553316"></tool>
+	<tool name="覆い焼きツール" type="1" key="1685021799">O</tool>
+	<tool name="焼き込みツール" type="1" key="1651864174">O</tool>
+	<tool name="スポンジツール" type="1" key="1935766645">O</tool>
+	<tool name="ペンツール" type="1" key="1885695572">P</tool>
+	<tool name="フリーフォームペンツール" type="1" key="1836082542">P</tool>
+	<tool name="アンカーポイントの追加ツール" type="1" key="1634430580"></tool>
+	<tool name="アンカーポイントの削除ツール" type="1" key="1684762228"></tool>
+	<tool name="アンカーポイントの切り替えツール" type="1" key="1667985012"></tool>
+	<tool name="横書き文字ツール" type="1" key="1954038392">T</tool>
+	<tool name="縦書き文字ツール" type="1" key="1954038358">T</tool>
+	<tool name="横書き文字マスクツール" type="1" key="1954115667">T</tool>
+	<tool name="縦書き文字マスクツール" type="1" key="1987344723">T</tool>
+	<tool name="パスコンポーネント選択ツール" type="1" key="1885565780">A</tool>
+	<tool name="パス選択ツール" type="1" key="1886677089">A</tool>
+	<tool name="長方形ツール" type="1" key="1382376308">U</tool>
+	<tool name="角丸長方形ツール" type="1" key="1381131124">U</tool>
+	<tool name="楕円形ツール" type="1" key="1164734579">U</tool>
+	<tool name="多角形ツール" type="1" key="1349479545">U</tool>
+	<tool name="ラインツール" type="1" key="1818848852">U</tool>
+	<tool name="カスタムシェイプツール" type="1" key="1131762536">U</tool>
+	<tool name="手のひらツール" type="1" key="1751215716">H</tool>
+	<tool name="回転ビューツール" type="1" key="1919906932">R</tool>
+	<tool name="ズームツール" type="1" key="2054123373">Z</tool>
+	<tool name="ターゲット調整ツール" type="1" key="1952932196"></tool>
+	<tool name="初期設定の描画色と背景色" type="2">D</tool>
+	<tool name="描画色と背景色を入れ替え" type="3">X</tool>
+	<tool name="画像描画モード / クイックマスクモードの切り替え" type="4">Q</tool>
+	<tool name="スクリーンモードの切り替え" type="5">F</tool>
+	<tool name="透明ピクセルのロックを切り替え" type="6">/</tool>
+	<tool name="ブラシサイズを減少" type="7">[</tool>
+	<tool name="ブラシサイズを増加" type="8">]</tool>
+	<tool name="ブラシの硬さを減少" type="9">{</tool>
+	<tool name="ブラシの硬さを増加" type="10">}</tool>
+	<tool name="前のブラシ" type="11">,</tool>
+	<tool name="次のブラシ" type="12">.</tool>
+	<tool name="最初のブラシ" type="13">&lt;</tool>
+	<tool name="最後のブラシ" type="14">&gt;</tool>
+	<tool name="カラーピッカー (描画色)" type="15"></tool>
+	<tool name="カラーピッカー (背景色)" type="16"></tool>
+	<tool name="混合ブラシにカラーを補充" type="17"></tool>
+	<tool name="混合ブラシを洗う" type="18"></tool>
+	<tool name="混合ブラシの自動カラー補充を切り替え" type="19"></tool>
+	<tool name="混合ブラシの自動カラー補充を切り替え" type="20"></tool>
+	<tool name="混合ブラシの「全レイヤーを対象」を切り替え" type="21"></tool>
+	<tool name="摩耗性先端をシャープに" type="22"></tool>
+	<tool name="パス選択モードの切り替え" type="23"></tool>
+</photoshop-keyboard-shortcuts>
