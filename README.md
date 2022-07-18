@@ -23,6 +23,20 @@ PhotoShopでサイト作るときに便利な jsx、ショートカット、ア�
   * webCreate kys_cs5.kys（一応いれてある、kamem用キーボードショートカット CS5）
   * webCreateShortcutSet.atn（アクション、ショートカット設定済み　自分用に設定してある場合は上書きされないと思います。）
 
+## インストール
+下記フォルダに`jsx`ファイルを入れてください。
+
+### Windows
+```
+C:\Program Files\Adobe\Adobe Photoshop\Presets\Scripts
+```
+### Mac
+```
+Adobe Photoshop\Presets\Scripts
+```
+
+あくまでも自分用ですので、もしも使う方がいらっしゃいましたら、自分用にショートカットなど指定してください！
+
 ## カラーピッカー
 テキストとシェイプの色を同じカラーピッカーを使い変更することができます。
 （CS5からしか使えない）
@@ -79,34 +93,11 @@ c(cs4) k(cs3) ?
 ## カスタマイズショートカット
 |  ショートカット  |  TH  |
 | ---- | ---- |
-|  `Ctrl + Shift + c`  |  レイヤー効果のコピー  |
-|  `Ctrl + Shift + v`  |  レイヤー効果のペースト  |
-|  `Ctrl + z`  |  一段階戻る  |
-|  `Ctrl + b`  |  レイヤースタイル表示  |
-|  `Shift + Alt + Ctrl + b`  |  Shift + Alt + Ctrl + b  |
+|  `Ctrl` + `Shift` + `c`  |  レイヤー効果のコピー  |
+|  `Ctrl` + `Shift` + `v`  |  レイヤー効果のペースト  |
+|  `Ctrl` + `z`  |  一段階戻る  |
+|  `Ctrl` + `b`  |  レイヤースタイル表示  |
+|  `Shift` + `Alt` + `Ctrl` + `b`  |  Shift + Alt + Ctrl + b  |
 |  `F4`  |  カラーピッカー  |
-|  `Ctrl + r`  |  LayerName.jsx  |
-|  `Ctrl + Shift + r`  |  LayerName2.jsx  |
-
-Ctrl + Shift + c
-レイヤー効果のコピー
-Ctrl + Shift + v
-レイヤー効果のペースト
-Ctrl + z
-一段階戻る
-Ctrl + b
-レイヤースタイル
-Shift + Ctrl + b
-レイヤースタイル「ドロップシャドウ」
-Shift + Alt + Ctrl + b
-レイヤースタイル「境界線」
-F4
-レイヤーオプション、CS5では便利カラーピッカー
-Ctrl + r
-LayerName.jsx
-Shift + Ctrl + r
-LayerName_Group.jsx
-Ctrl + m
-fontSizeSet.jsx
-Shift + Ctrl + q
-kadomaruSelect.jsx
+|  `Ctrl` + `r`  |  LayerName.jsx  |
+|  `Ctrl` + `Shift` + `r`  |  LayerName2.jsx  |
