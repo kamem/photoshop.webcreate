@@ -1,61 +1,111 @@
-//‘I‘ğ‚µ‚Ä‚éƒIƒuƒWƒFƒNƒg
-var actDoc = activeDocument;
-//‘I‘ğ‚µ‚Ä‚éƒŒƒCƒ„[
-var layObj = activeDocument.activeLayer;
-//ƒŠƒ“ƒN‚³‚ê‚Ä‚¢‚éƒŒƒCƒ„[”z—ñ
-var allselLinkLys = new Array();
-//‘I‘ğ‚³‚ê‚Ä‚¢‚é”
+app.activeDocument.suspendHistory('ãƒ¬ã‚¤ãƒ¤ãƒ¼åå¤‰æ›´', 'changeLayerName()')
+
+function changeLayerName() {
+
+//é¸æŠã—ã¦ã‚‹ãƒ¬ã‚¤ãƒ¤ãƒ¼
+const activeLayer = activeDocument.activeLayer;
+//ãƒªãƒ³ã‚¯ã•ã‚Œã¦ã„ã‚‹ãƒ¬ã‚¤ãƒ¤ãƒ¼é…åˆ—
+const allselLinkLys = [];
+//é¸æŠã•ã‚Œã¦ã„ã‚‹æ•°
 var allselLinkLysLength;
 
-
-
-var editWindow = new Window("dialog","ƒŒƒCƒ„[–¼•ÏX",[300,300,600,530]);
+const editWindow = new Window("dialog","ãƒ¬ã‚¤ãƒ¤ãƒ¼åå¤‰æ›´",[300,300,700,530]);
 editWindow.center();
 
-editWindow.eText = editWindow.add("edittext",[10,10,290,10+25], "");
-editWindow.eText.text = layObj.name;
+const dialogFieldHeight = 25
+const dialogMargin = 10
+const replacePosition = { x: 10, y: 10, width: 0, height: dialogFieldHeight }
+editWindow.replaceBtn = editWindow.add("radiobutton", replacePosition, "ç½®æ›");
+replacePosition.y += dialogFieldHeight + dialogMargin
+editWindow.addBtn = editWindow.add("radiobutton", replacePosition, "è¿½åŠ ");
+replacePosition.y += dialogFieldHeight + dialogMargin
+editWindow.deleteBtn = editWindow.add("radiobutton", replacePosition, "å‰Šé™¤");
+replacePosition.y += dialogFieldHeight + dialogMargin
+editWindow.numberBtn = editWindow.add("radiobutton", replacePosition, "é€£ç•ª");
+editWindow.replaceBtn.value = true
 
-editWindow.replaceBtn = editWindow.add("radiobutton",[10,40,275,40+30], "’uŠ·");
-editWindow.replaceText = editWindow.add("edittext",[70,40,290,40+25], "");
+// ç½®æ›
+const replaceY = 10
+editWindow.replaceBaseText = editWindow.add("edittext", { x: 70, y: replaceY, width: 130, height: dialogFieldHeight }, "");
+editWindow.replaceBaseText.text = activeLayer.name;
+editWindow.replaceText = editWindow.add("edittext", { x: 210, y: replaceY, width: 130, height: dialogFieldHeight }, "");
+editWindow.replaceBaseText.active = true;
 
-editWindow.deleteBtn1 = editWindow.add("radiobutton",[10,65,275,65+30], "íœ[Å‰‚©‚ç]");
-editWindow.deleteBtn2 = editWindow.add("radiobutton",[140,65,275,65+30], "íœ[ÅŒã‚©‚ç]");
+// è¿½åŠ 
+const addY = replaceY + dialogFieldHeight + dialogMargin
+editWindow.addStartEnd = editWindow.add("dropdownlist", { x: 70, y: addY, width: 80, height: dialogFieldHeight }, ['æœ€åˆã«', 'æœ€å¾Œã«']);
+editWindow.addStartEnd.selection = 0
+editWindow.addText = editWindow.add("edittext",{ x: 160, y: addY, width: 100, height: dialogFieldHeight }, '');
+editWindow.add("statictext", { x: 270, y: addY, width: 100, height: dialogFieldHeight }, "ã‚’è¿½åŠ ");
 
-editWindow.addBtn1 = editWindow.add("radiobutton",[10,90,275,90+30], "’Ç‰Á [Å‰]");
-editWindow.addBtn2 = editWindow.add("radiobutton",[110,90,275,90+30], "’Ç‰Á [ÅŒã]");
+// å‰Šé™¤
+const deleteY = addY + dialogFieldHeight + dialogMargin
+editWindow.deleteStartEnd = editWindow.add("dropdownlist", { x: 70, y: deleteY, width: 80, height: dialogFieldHeight }, ['æœ€åˆã‹ã‚‰', 'æœ€å¾Œã‹ã‚‰']);
+editWindow.deleteStartEnd.selection = 0
+editWindow.deleteNum = editWindow.add("editnumber", { x: 160, y: deleteY, width: 40, height: dialogFieldHeight }, 0);
+editWindow.add("statictext", { x:210, y: deleteY, width: 80, height: dialogFieldHeight }, "æ–‡å­—å‰Šé™¤");
 
-editWindow.numberBtn1 = editWindow.add("radiobutton",[10,115,275,115+30], "˜A”Ô [Å‰]");
-editWindow.numberBtn2 = editWindow.add("radiobutton",[110,115,275,115+30], "˜A”Ô [ÅŒã]");
+// é€£ç•ª
+const numberY = deleteY + dialogFieldHeight + dialogMargin
+editWindow.numberStartEnd = editWindow.add("dropdownlist", { x: 70, y: numberY, width: 80, height: dialogFieldHeight }, ['æœ€åˆã«', 'æœ€å¾Œã«']);
+editWindow.numberStartEnd.selection = 0
 
-editWindow.numberCopy = editWindow.add("statictext",[58,153,160,150+25], "˜A”Ô 0‚Ì”"); 
-editWindow.numberText = editWindow.add("edittext",[10,150,50,150+25], "0");
+editWindow.add("statictext", { x: 160, y: numberY, width: 70, height: dialogFieldHeight }, "é€£ç•ª 0ã®æ•°"); 
+editWindow.numberInput = editWindow.add("editnumber", { x: 230, y: numberY, width: 50, height: dialogFieldHeight }, 0);
 
-editWindow.okBtn = editWindow.add("button",[160,190,230,190+25], "OK", { name:"ok"});
-editWindow.cancelBtn = editWindow.add("button", [70,190,150,190+25], "Cancel", {name: "cancel"});
+const numberTextY = numberY + dialogFieldHeight + 5
+editWindow.add("statictext", { x: 70, y: numberTextY, width: 60, height: dialogFieldHeight }, "æ¥ç¶šæ–‡å­—åˆ—"); 
+editWindow.joinStrinig = editWindow.add("edittext", { x: 140, y: numberTextY, width: 50, height: dialogFieldHeight }, '_');
+editWindow.add("statictext", { x: 200, y: numberTextY, width: 70, height: dialogFieldHeight }, "ã§è¿½åŠ "); 
+
+const buttonsY = numberTextY + dialogFieldHeight + dialogMargin + 10
+editWindow.cancelBtn = editWindow.add("button", { x: 125, y: buttonsY, width: 70, height: dialogFieldHeight }, "ã‚­ãƒ£ãƒ³ã‚»ãƒ«", {name: "cancel"});
+editWindow.okBtn = editWindow.add("button",{ x: 210, y: buttonsY, width: 70, height: dialogFieldHeight }, "å®Ÿè¡Œ", { name:"ok"});
+
+function addLayerName (text) {
+	const isStart = editWindow.addStartEnd.selection.index === 0
+	for(i=0;i<allselLinkLys.length;i++) {
+		allselLinkLys[i].name = isStart ? text + allselLinkLys[i].name :  allselLinkLys[i].name + text
+	}
+}
+
+function deleteLayerName (num) {
+	const isStart = editWindow.deleteStartEnd.selection.index === 0
+	for(i=0;i<allselLinkLys.length;i++) {
+		allselLinkLys[i].name = isStart ? allselLinkLys[i].name.slice(num, allselLinkLys[i].name.length) : allselLinkLys[i].name.slice(0, allselLinkLys[i].name.length - num)
+	}
+}
+
+function replaceLyaerNameText() {
+	for(i=0;i<allselLinkLys.length;i++) {
+		allselLinkLys[i].name = replaceAll(allselLinkLys[i].name, editWindow.replaceBaseText.text, editWindow.replaceText.text); 
+	}
+}
+
+function addNumber(zeroNum) {
+	const joinString = editWindow.joinStrinig.text || ''
+	const isStart = editWindow.numberStartEnd.selection.index === 0
+	for(i=0;i<allselLinkLys.length;i++) {
+		var zeroString = '';
+		var num = i;
+		
+		zeroNum = zeroNum - (String(num + 1).length - 1);
+		for(var j = 0; j < zeroNum; j++) {
+			zeroString = zeroString + '0';
+		}
+		num = String(zeroString) + (num + 1);
+		allselLinkLys[i].name = isStart ? num + joinString + allselLinkLys[i].name : allselLinkLys[i].name + joinString + num
+	}
+}
 
 
 
 editWindow.cancelBtn.onClick = function() {
 	editWindow.close();
 }
-/*
-editWindow.deleteBtn1.onClick = function() {
-	editWindow.eText.text = 0;
-}
-editWindow.deleteBtn2.onClick = function() {
-	editWindow.eText.text = 0;
-}
-editWindow.replaceBtn.onClick = function() {
-	editWindow.eText.text = layObj.name;
-}
-editWindow.numberBtn1.onClick = function() {
-	editWindow.eText.text = layObj.name;
-}
-editWindow.numberBtn2.onClick = function() {
-	editWindow.eText.text = layObj.name;
-}*/
 
 editWindow.okBtn.onClick = function() {
+
 	editWindow.close();
 	UnLinkSelLys();
 
@@ -68,115 +118,25 @@ editWindow.okBtn.onClick = function() {
 	UnLinkSelLys();
 
 
-	//’uŠ·
+	//ç½®æ›
 	if(editWindow.replaceBtn.value) {
-		for(i=0;i<allselLinkLysLength;i++)
-		{
-			allselLinkLys[i].name = replaceAll(allselLinkLys[i].name, editWindow.eText.text, editWindow.replaceText.text); 
-		}
-		allselLinkLys[0].name = replaceAll(allselLinkLys[0].name, editWindow.eText.text, editWindow.replaceText.text); 
+		replaceLyaerNameText()
 	}
 
-
-	// íœ
-	if(editWindow.deleteBtn1.value) {
-		for(i=0;i<allselLinkLysLength;i++)
-		{
-			allselLinkLys[i].name = allselLinkLys[i].name.slice(editWindow.eText.text,allselLinkLys[i].name.length);
-		}
-		allselLinkLys[0].name = allselLinkLys[0].name.slice(editWindow.eText.text,allselLinkLys[0].name.length);
-	}
-	if(editWindow.deleteBtn2.value) {
-		for(i=0;i<allselLinkLysLength;i++)
-		{
-			allselLinkLys[i].name = allselLinkLys[i].name.slice(0,allselLinkLys[i].name.length - editWindow.eText.text);
-		}
-			allselLinkLys[0].name = allselLinkLys[0].name.slice(0,allselLinkLys[0].name.length - editWindow.eText.text);
+	// å‰Šé™¤
+	if(editWindow.deleteBtn.value) {
+		deleteLayerName(editWindow.deleteNum.text)
 	}
 	
-	// ’Ç‰Á
-	if(editWindow.addBtn1.value) {
-		for(i=0;i<allselLinkLysLength;i++)
-		{
-			allselLinkLys[i].name =  editWindow.eText.text + allselLinkLys[i].name;
-		}
-		allselLinkLys[0].name = editWindow.eText.text + allselLinkLys[0].name;
-	}
-	if(editWindow.addBtn2.value) {
-		for(i=0;i<allselLinkLysLength;i++)
-		{
-			allselLinkLys[i].name = allselLinkLys[i].name + editWindow.eText.text;
-		}
-		allselLinkLys[0].name = allselLinkLys[0].name + editWindow.eText.text;
+	// è¿½åŠ 
+	if(editWindow.addBtn.value) {
+		addLayerName(editWindow.addText.text)
 	}
 
-	// ˜A”Ô
-	if(editWindow.numberBtn1.value || editWindow.numberBtn2.value) {
-		for(i=0;i<allselLinkLysLength;i++) {
-		
-			//if (i < 9) var num = "0" + (i+1); else var num = (i+1);
-			
-			var zeroString = '';
-			var zeroNum = editWindow.numberText.text;
-			var num = i;
-			
-			zeroNum = zeroNum - (String(num + 1).length - 1);
-			for(var j = 0; j < zeroNum; j++) {
-				zeroString = zeroString + '0';
-			}
-			num = String(zeroString) + (num + 1);
-			
-			if(editWindow.eText.text === '') {
-				if(editWindow.numberBtn1.value) {
-					allselLinkLys[i].name = num + allselLinkLys[i].name;
-				}
-				else {
-					allselLinkLys[i].name = allselLinkLys[i].name + num;
-				}
-			}
-			else {
-				if(editWindow.numberBtn1.value) {
-					allselLinkLys[i].name = num + editWindow.eText.text;
-				}
-				else {
-					allselLinkLys[i].name = editWindow.eText.text + num;
-				}
-			}
-		}
-
-		zeroNum = editWindow.numberText.text - (String(0).length - 1);
-		var zeroString = '';
-		
-		for(var j = 0; j < zeroNum; j++) {
-			zeroString = zeroString + '0';
-		}
-		if(editWindow.eText.text === '') {
-			if(editWindow.numberBtn1.value) {
-				allselLinkLys[0].name = String(zeroString) + 1 + allselLinkLys[0].name;
-			}
-			else {
-				allselLinkLys[0].name = allselLinkLys[0].name + String(zeroString) + 1;
-			}
-		}
-		else {
-			if(editWindow.numberBtn1.value) {
-				allselLinkLys[0].name = String(zeroString) + 1 + editWindow.eText.text;
-			}
-			else {
-				allselLinkLys[0].name = editWindow.eText.text + String(zeroString) + 1;
-			}
-		}
+	// é€£ç•ª
+	if(editWindow.numberBtn.value) {
+		addNumber(editWindow.numberInput.text)
 	}
-	
-	else if(!(editWindow.replaceBtn.value || editWindow.deleteBtn1.value || editWindow.deleteBtn2.value || editWindow.numberBtn1.value || editWindow.numberBtn2.value || editWindow.addBtn1.value || editWindow.addBtn2.value)){
-		//“ü—Í’Ê‚è–¼‘O“ü‚ê‚é
-		for(i=0;i<allselLinkLysLength;i++)
-		{
-			allselLinkLys[i].name = editWindow.eText.text;
-		}
-		allselLinkLys[0].name = editWindow.eText.text;
-	}
-	
 
 	ReSelected();
 }
@@ -184,14 +144,14 @@ editWindow.okBtn.onClick = function() {
 
 editWindow.show();
 
-//•¡”’uŠ·—p
+//è¤‡æ•°ç½®æ›ç”¨
 function replaceAll(expression, org, dest){  
     return expression.split(org).join(dest);  
 }  
 
 //--------------------------------------------------------------------------------------------------
 
-//‘I‘ğƒŒƒCƒ„[‚ğƒŠƒ“ƒN•t‚¯
+//é¸æŠãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’ãƒªãƒ³ã‚¯ä»˜ã‘
 function LinkSelLys() {
 	var lID1 = stringIDToTypeID( "linkSelectedLayers" );
 	var lDesc1 = new ActionDescriptor();
@@ -205,7 +165,7 @@ function LinkSelLys() {
 	executeAction( lID1, lDesc1, DialogModes.NO );
 }
 
-//‘I‘ğƒŒƒCƒ„[‚ÌƒŠƒ“ƒN‰ğœ
+//é¸æŠãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ãƒªãƒ³ã‚¯è§£é™¤
 function UnLinkSelLys() {
 	var uID1 = stringIDToTypeID( "unlinkSelectedLayers" );
 	var uDesc1 = new ActionDescriptor();
@@ -219,7 +179,7 @@ function UnLinkSelLys() {
 	executeAction( uID1, uDesc1, DialogModes.NO );
 }
 
-//‰º‚ÌƒŒƒCƒ„[‘I‘ğ
+//ä¸‹ã®ãƒ¬ã‚¤ãƒ¤ãƒ¼é¸æŠ
 function selectBottom() {
 	var idslct = charIDToTypeID( "slct" );
 	var desc1337 = new ActionDescriptor();
@@ -239,11 +199,11 @@ function selectBottom() {
 	executeAction( idslct, desc1337, DialogModes.NO );
 }
 
-//ƒŠƒ“ƒN‚³‚ê‚½ƒŒƒCƒ„[‚ğæ“¾
+//ãƒªãƒ³ã‚¯ã•ã‚ŒãŸãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’å–å¾—
 function SelLy() {
-	var selLinkLys = layObj.linkedLayers;
+	var selLinkLys = activeLayer.linkedLayers;
 	linkLysLength = selLinkLys.length;
-	allselLinkLys[0] = layObj;
+	allselLinkLys[0] = activeLayer;
 	u = 1;
 	for(i=0;i<linkLysLength;i++)
 	{
@@ -253,7 +213,7 @@ function SelLy() {
 	allselLinkLysLength = allselLinkLys.length
 }
 
-//‘I‘ğ(Ctrl+Click)
+//é¸æŠ(Ctrl+Click)
 function ToggleSelect(TslName) {
 	var oID12 = charIDToTypeID( "slct" );
 	var oDesc3 = new ActionDescriptor();
@@ -271,10 +231,14 @@ function ToggleSelect(TslName) {
 	executeAction( oID12, oDesc3, DialogModes.NO );
 }
 
-//Œ³‚ÌƒŒƒCƒ„[‘I‘ğó‘Ô‚É•œŒ³
+
+//å…ƒã®ãƒ¬ã‚¤ãƒ¤ãƒ¼é¸æŠçŠ¶æ…‹ã«å¾©å…ƒ
 function ReSelected() {
-	activeDocument.activeLayer = allselLinkLys[0];
+	// activeDocument.activeLayer = allselLinkLys[0];
 	for(i=0;i<allselLinkLysLength;i++) {
 		ToggleSelect(allselLinkLys[i].name);
 	}
 }
+
+}
+

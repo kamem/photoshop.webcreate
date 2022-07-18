@@ -1,1 +1,124 @@
-//‘I‘ğ‚µ‚Ä‚éƒIƒuƒWƒFƒNƒgvar actDoc = activeDocument;//‘I‘ğ‚µ‚Ä‚éƒŒƒCƒ„[var layObj = activeDocument.activeLayer;//ƒŠƒ“ƒN‚³‚ê‚Ä‚¢‚éƒŒƒCƒ„[”z—ñvar allselLinkLys = new Array();//‘I‘ğ‚³‚ê‚Ä‚¢‚é”var allselLinkLysLength;text = prompt("ƒOƒ‹[ƒv–¼",layObj.parent.name);//ƒLƒƒƒ“ƒZƒ‹‰Ÿ‚³‚ê‚½‚çA‚»‚Ì‚Ü‚Üif(text == null) {}else {UnLinkSelLys();try@{LinkSelLys();}catch(e)@{}finally{}SelLy();UnLinkSelLys();//ˆê‚ÂˆÈã‘I‘ğ‚³‚ê‚Ä‚½‚ç	if(allselLinkLysLength > 1) {		//Å‰‚Ì•¶š‚ª_‚¾‚Á‚½‚ç		if(text.substr(0, 1) == "_") {			nameSet3();		}		else {			nameSet();		}	}	else {		//Å‰‚Ì•¶š‚ª_‚¾‚Á‚½‚ç		if(text.substr(0, 1) == "_") {			nameSet3();		}		else {			nameSet();		}	}}//“ü—Í’Ê‚è–¼‘O“ü‚ê‚éfunction nameSet() {	for(i=0;i<allselLinkLysLength;i++)	{		allselLinkLys[i].name = text;	}	allselLinkLys[0].name = text;}//˜A”Ôfunction nameSet2() {	for(i=0;i<allselLinkLysLength;i++)	{		if (i < 9) var num = "0" + (i+1); else var num = (i+1);		allselLinkLys[i].name = text + num;	}	allselLinkLys[0].name = text + "0" + 1;}//_‚ªÅ‰‚É‚Â‚¢‚Ä‚¢‚éê‡AÅŒã‚Éu_testv‚Ì‚æ‚¤‚É“ü‚ê‚éfunction nameSet3() {	for(i=0;i<allselLinkLysLength;i++)	{		if(!(allselLinkLys[i].name.substr(allselLinkLys[i].name.length - text.length,  text.length) == text)) {			allselLinkLys[i].name = allselLinkLys[i].name + text;		}		}	if(!(allselLinkLys[0].name.substr(allselLinkLys[0].name.length - text.length,  text.length) == text)) {		allselLinkLys[0].name = allselLinkLys[0].name + text;	}}//‘I‘ğƒŒƒCƒ„[‚ğƒŠƒ“ƒN•t‚¯function LinkSelLys() {	var lID1 = stringIDToTypeID( "linkSelectedLayers" );	var lDesc1 = new ActionDescriptor();	var lID2 = charIDToTypeID( "null" );	var lRef1 = new ActionReference();	var lID3 = charIDToTypeID( "Lyr " );	var lID4 = charIDToTypeID( "Ordn" );	var lID5 = charIDToTypeID( "Trgt" );	lRef1.putEnumerated( lID3, lID4, lID5 );	lDesc1.putReference( lID2, lRef1 );	executeAction( lID1, lDesc1, DialogModes.NO );}//‘I‘ğƒŒƒCƒ„[‚ÌƒŠƒ“ƒN‰ğœfunction UnLinkSelLys() {	var uID1 = stringIDToTypeID( "unlinkSelectedLayers" );	var uDesc1 = new ActionDescriptor();	var uID2 = charIDToTypeID( "null" );	var uRef1 = new ActionReference();	var uID3 = charIDToTypeID( "Lyr " );	var uID4 = charIDToTypeID( "Ordn" );	var uID5 = charIDToTypeID( "Trgt" );	uRef1.putEnumerated( uID3, uID4, uID5 );	uDesc1.putReference( uID2, uRef1 );	executeAction( uID1, uDesc1, DialogModes.NO );}//ƒŠƒ“ƒN‚³‚ê‚½ƒŒƒCƒ„[‚ÌeƒOƒ‹[ƒv‚ğæ“¾function SelLy() {	var selLinkLys = layObj.linkedLayers;	linkLysLength = selLinkLys.length;	allselLinkLys[0] = layObj.parent;	u = 1;	for(i=0;i<linkLysLength;i++)	{		allselLinkLys[u] = selLinkLys[i].parent;		u++;	}	allselLinkLysLength = allselLinkLys.length}
+//é¸æŠã—ã¦ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+var actDoc = activeDocument;
+//é¸æŠã—ã¦ã‚‹ãƒ¬ã‚¤ãƒ¤ãƒ¼
+var layObj = activeDocument.activeLayer;
+//ãƒªãƒ³ã‚¯ã•ã‚Œã¦ã„ã‚‹ãƒ¬ã‚¤ãƒ¤ãƒ¼é…åˆ—
+var allselLinkLys = new Array();
+//é¸æŠã•ã‚Œã¦ã„ã‚‹æ•°
+var allselLinkLysLength;
+
+
+text = prompt("ã‚°ãƒ«ãƒ¼ãƒ—å",layObj.parent.name);
+
+//ã‚­ãƒ£ãƒ³ã‚»ãƒ«æŠ¼ã•ã‚ŒãŸã‚‰ã€ãã®ã¾ã¾
+if(text == null) {
+}
+else {
+
+UnLinkSelLys();
+
+tryã€€{
+LinkSelLys();
+}
+catch(e)ã€€{}
+finally{}
+
+SelLy();
+UnLinkSelLys();
+//ä¸€ã¤ä»¥ä¸Šé¸æŠã•ã‚Œã¦ãŸã‚‰
+	if(allselLinkLysLength > 1) {
+		//æœ€åˆã®æ–‡å­—ãŒ_ã ã£ãŸã‚‰
+		if(text.substr(0, 1) == "_") {
+			nameSet3();
+		}
+		else {
+			nameSet();
+		}
+	}
+
+	else {
+		//æœ€åˆã®æ–‡å­—ãŒ_ã ã£ãŸã‚‰
+		if(text.substr(0, 1) == "_") {
+			nameSet3();
+		}
+		else {
+			nameSet();
+		}
+	}
+}
+
+//å…¥åŠ›é€šã‚Šåå‰å…¥ã‚Œã‚‹
+function nameSet() {
+	for(i=0;i<allselLinkLysLength;i++)
+	{
+		allselLinkLys[i].name = text;
+	}
+	allselLinkLys[0].name = text;
+}
+
+//é€£ç•ª
+function nameSet2() {
+	for(i=0;i<allselLinkLysLength;i++)
+	{
+		if (i < 9) var num = "0" + (i+1); else var num = (i+1);
+		allselLinkLys[i].name = text + num;
+	}
+	allselLinkLys[0].name = text + "0" + 1;
+}
+
+//_ãŒæœ€åˆã«ã¤ã„ã¦ã„ã‚‹å ´åˆã€æœ€å¾Œã«ã€Œ_testã€ã®ã‚ˆã†ã«å…¥ã‚Œã‚‹
+function nameSet3() {
+	for(i=0;i<allselLinkLysLength;i++)
+	{
+		if(!(allselLinkLys[i].name.substr(allselLinkLys[i].name.length - text.length,  text.length) == text)) {
+			allselLinkLys[i].name = allselLinkLys[i].name + text;
+		}
+	
+	}
+	if(!(allselLinkLys[0].name.substr(allselLinkLys[0].name.length - text.length,  text.length) == text)) {
+		allselLinkLys[0].name = allselLinkLys[0].name + text;
+	}
+}
+
+//é¸æŠãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’ãƒªãƒ³ã‚¯ä»˜ã‘
+function LinkSelLys() {
+	var lID1 = stringIDToTypeID( "linkSelectedLayers" );
+	var lDesc1 = new ActionDescriptor();
+	var lID2 = charIDToTypeID( "null" );
+	var lRef1 = new ActionReference();
+	var lID3 = charIDToTypeID( "Lyr " );
+	var lID4 = charIDToTypeID( "Ordn" );
+	var lID5 = charIDToTypeID( "Trgt" );
+	lRef1.putEnumerated( lID3, lID4, lID5 );
+	lDesc1.putReference( lID2, lRef1 );
+	executeAction( lID1, lDesc1, DialogModes.NO );
+}
+
+//é¸æŠãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ãƒªãƒ³ã‚¯è§£é™¤
+function UnLinkSelLys() {
+	var uID1 = stringIDToTypeID( "unlinkSelectedLayers" );
+	var uDesc1 = new ActionDescriptor();
+	var uID2 = charIDToTypeID( "null" );
+	var uRef1 = new ActionReference();
+	var uID3 = charIDToTypeID( "Lyr " );
+	var uID4 = charIDToTypeID( "Ordn" );
+	var uID5 = charIDToTypeID( "Trgt" );
+	uRef1.putEnumerated( uID3, uID4, uID5 );
+	uDesc1.putReference( uID2, uRef1 );
+	executeAction( uID1, uDesc1, DialogModes.NO );
+}
+
+
+//ãƒªãƒ³ã‚¯ã•ã‚ŒãŸãƒ¬ã‚¤ãƒ¤ãƒ¼ã®è¦ªã‚°ãƒ«ãƒ¼ãƒ—ã‚’å–å¾—
+function SelLy() {
+	var selLinkLys = layObj.linkedLayers;
+	linkLysLength = selLinkLys.length;
+	allselLinkLys[0] = layObj.parent;
+	u = 1;
+	for(i=0;i<linkLysLength;i++)
+	{
+		allselLinkLys[u] = selLinkLys[i].parent;
+		u++;
+	}
+	allselLinkLysLength = allselLinkLys.length
+}
