@@ -16,7 +16,7 @@ PhotoShopでサイト作るときに便利な jsx、ショートカット、ア�
   * LayerName2.jsx
   * LayerName_Group.jsx
   * LayerName_noCopy.jsx
-レイヤーに基づくスライス_改
+* レイヤーに基づくスライス_改
   * slice_Set.jsx
   * sliceGroup_Set.jsx
   * webCreate kys.kys（一応いれてある、kamem用キーボードショートカット）
