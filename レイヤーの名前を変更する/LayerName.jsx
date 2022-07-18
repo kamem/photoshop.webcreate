@@ -1,1 +1,200 @@
-//‘I‘ğ‚µ‚Ä‚éƒIƒuƒWƒFƒNƒgvar actDoc = activeDocument;//‘I‘ğ‚µ‚Ä‚éƒŒƒCƒ„[var layObj = activeDocument.activeLayer;//ƒŠƒ“ƒN‚³‚ê‚Ä‚¢‚éƒŒƒCƒ„[”z—ñvar allselLinkLys = new Array();//‘I‘ğ‚³‚ê‚Ä‚¢‚é”var allselLinkLysLength;text = prompt("ƒŒƒCƒ„–¼",layObj.name);//ƒLƒƒƒ“ƒZƒ‹‰Ÿ‚³‚ê‚½‚çA‚»‚Ì‚Ü‚Üif(text == null) {}else {UnLinkSelLys();try@{LinkSelLys();}catch(e)@{}finally{}SelLy();UnLinkSelLys();//ˆê‚ÂˆÈã‘I‘ğ‚³‚ê‚Ä‚½‚ç	if(allselLinkLysLength > 1) {		//Å‰‚Ì•¶š‚ª?‚¾‚Á‚½‚ç		if(text.substr(0, 1) == "?") {			nameSet4();		}		else {		if(text.substr(0, 1) == "_") {			nameSet3();		}		else {			//ÅŒã‚Ì•¶š‚ª_‚¾‚Á‚½‚ç			if(text.substr(text.length -1, 1) == "_") {				nameSet2();			}			else {				flag = confirm("˜A”Ô‚É‚µ‚Ü‚·‚©H" + "i1`"+allselLinkLysLength+"j");				if (flag == true) nameSet2(); else nameSet();			}		}		}	}	else {		//Å‰‚Ì•¶š‚ª?‚¾‚Á‚½‚ç		if(text.substr(0, 1) == "?") {			nameSet4();		}		else {		if(text.substr(0, 1) == "_") {			nameSet3();		}		else {			//ÅŒã‚Ì•¶š‚ª_‚¾‚Á‚½‚ç			if(text.substr(text.length -1, 1) == "_") {				nameSet2();			}			else {				nameSet();			}		}		}	}ReSelected();}//“ü—Í’Ê‚è–¼‘O“ü‚ê‚éfunction nameSet() {	for(i=0;i<allselLinkLysLength;i++)	{		allselLinkLys[i].name = text;	}	allselLinkLys[0].name = text;}//˜A”Ôfunction nameSet2() {	for(i=0;i<allselLinkLysLength;i++)	{		if (i < 9) var num = "0" + (i+1); else var num = (i+1);		allselLinkLys[i].name = text + num;	}	allselLinkLys[0].name = text + "0" + 1;}//_‚ªÅ‰‚É‚Â‚¢‚Ä‚¢‚éê‡AÅŒã‚Éu_testv‚Ì‚æ‚¤‚É“ü‚ê‚éfunction nameSet3() {	if(allselLinkLysLength > 1) {	for(i=0;i<allselLinkLysLength;i++)	{		allselLinkLys[i].name = allselLinkLys[i].name + text;	}	allselLinkLys[0].name = allselLinkLys[0].name + text;	}	else{		allselLinkLys[0].name = allselLinkLys[0].name + text;	}}//?‚ªÅ‰‚É‚Â‚¢‚Ä‚¢‚éê‡AÅ‰‚É?‚Ê‚«‚Ì•¶š‚ğ‚Â‚¯‚éfunction nameSet4() {	if(allselLinkLysLength > 1) {	for(i=0;i<allselLinkLysLength;i++)	{		allselLinkLys[i].name = text.substr(1, text.length) + allselLinkLys[i].name;	}	allselLinkLys[0].name = text.substr(1, text.length) + allselLinkLys[0].name;	}	else{		allselLinkLys[0].name = text.substr(1, text.length) + allselLinkLys[i].name;	}}//‘I‘ğƒŒƒCƒ„[‚ğƒŠƒ“ƒN•t‚¯function LinkSelLys() {	var lID1 = stringIDToTypeID( "linkSelectedLayers" );	var lDesc1 = new ActionDescriptor();	var lID2 = charIDToTypeID( "null" );	var lRef1 = new ActionReference();	var lID3 = charIDToTypeID( "Lyr " );	var lID4 = charIDToTypeID( "Ordn" );	var lID5 = charIDToTypeID( "Trgt" );	lRef1.putEnumerated( lID3, lID4, lID5 );	lDesc1.putReference( lID2, lRef1 );	executeAction( lID1, lDesc1, DialogModes.NO );}//‘I‘ğƒŒƒCƒ„[‚ÌƒŠƒ“ƒN‰ğœfunction UnLinkSelLys() {	var uID1 = stringIDToTypeID( "unlinkSelectedLayers" );	var uDesc1 = new ActionDescriptor();	var uID2 = charIDToTypeID( "null" );	var uRef1 = new ActionReference();	var uID3 = charIDToTypeID( "Lyr " );	var uID4 = charIDToTypeID( "Ordn" );	var uID5 = charIDToTypeID( "Trgt" );	uRef1.putEnumerated( uID3, uID4, uID5 );	uDesc1.putReference( uID2, uRef1 );	executeAction( uID1, uDesc1, DialogModes.NO );}//‰º‚ÌƒŒƒCƒ„[‘I‘ğfunction selectBottom() {	var idslct = charIDToTypeID( "slct" );	var desc1337 = new ActionDescriptor();	var idnull = charIDToTypeID( "null" );	var ref904 = new ActionReference();	var idLyr = charIDToTypeID( "Lyr " );	var idOrdn = charIDToTypeID( "Ordn" );	var idBckw = charIDToTypeID( "Bckw" );	ref904.putEnumerated( idLyr, idOrdn, idBckw );	desc1337.putReference( idnull, ref904 );	var idselectionModifier = stringIDToTypeID( "selectionModifier" );	var idselectionModifierType = stringIDToTypeID( "selectionModifierType" );	var idaddToSelection = stringIDToTypeID( "addToSelection" );	desc1337.putEnumerated( idselectionModifier, idselectionModifierType, idaddToSelection );	var idMkVs = charIDToTypeID( "MkVs" );	desc1337.putBoolean( idMkVs, false );	executeAction( idslct, desc1337, DialogModes.NO );}//ƒŠƒ“ƒN‚³‚ê‚½ƒŒƒCƒ„[‚ğæ“¾function SelLy() {	var selLinkLys = layObj.linkedLayers;	linkLysLength = selLinkLys.length;	allselLinkLys[0] = layObj;	u = 1;	for(i=0;i<linkLysLength;i++)	{		allselLinkLys[u] = selLinkLys[i];		u++;	}	allselLinkLysLength = allselLinkLys.length}//‘I‘ğ(Ctrl+Click)function ToggleSelect(TslName) {	var oID12 = charIDToTypeID( "slct" );	var oDesc3 = new ActionDescriptor();	var oID13 = charIDToTypeID( "null" );	var oRef3 = new ActionReference();	var oID14 = charIDToTypeID( "Lyr " );	oRef3.putName( oID14, TslName );	oDesc3.putReference( oID13, oRef3 );	var oID15 = stringIDToTypeID( "selectionModifier" );	var oID16 = stringIDToTypeID( "selectionModifierType" );	var oID17 = stringIDToTypeID( "addToSelection" );	oDesc3.putEnumerated( oID15, oID16, oID17 );	var oID18 = charIDToTypeID( "MkVs" );	oDesc3.putBoolean( oID18, false );	executeAction( oID12, oDesc3, DialogModes.NO );}//Œ³‚ÌƒŒƒCƒ„[‘I‘ğó‘Ô‚É•œŒ³function ReSelected() {	activeDocument.activeLayer = allselLinkLys[0];	for(i=0;i<allselLinkLysLength;i++) {		ToggleSelect(allselLinkLys[i].name);	}}
+app.activeDocument.suspendHistory('ãƒ¬ã‚¤ãƒ¤ãƒ¼åå¤‰æ›´', 'changeLayerName()')
+
+function changeLayerName() {
+
+
+//é¸æŠã—ã¦ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+//é¸æŠã—ã¦ã‚‹ãƒ¬ã‚¤ãƒ¤ãƒ¼
+const activeLayer = activeDocument.activeLayer;
+//ãƒªãƒ³ã‚¯ã•ã‚Œã¦ã„ã‚‹ãƒ¬ã‚¤ãƒ¤ãƒ¼é…åˆ—
+var allselLinkLys = new Array();
+//é¸æŠã•ã‚Œã¦ã„ã‚‹æ•°
+var allselLinkLysLength;
+
+
+text = prompt("ãƒ¬ã‚¤ãƒ¤å",activeLayer.name);
+
+//ã‚­ãƒ£ãƒ³ã‚»ãƒ«æŠ¼ã•ã‚ŒãŸã‚‰ã€ãã®ã¾ã¾
+if(text == null) {
+}
+else {
+
+UnLinkSelLys();
+
+tryã€€{
+LinkSelLys();
+}
+catch(e)ã€€{}
+finally{}
+
+SelLy();
+UnLinkSelLys();
+//ä¸€ã¤ä»¥ä¸Šé¸æŠã•ã‚Œã¦ãŸã‚‰
+	if(allselLinkLysLength > 1) {
+		//æœ€åˆã®æ–‡å­—ãŒ?ã ã£ãŸã‚‰
+		if(text.substr(0, 1) == "?") {
+			nameSet4();
+		}
+		else {
+		if(text.substr(0, 1) == "_") {
+			nameSet3();
+		}
+		else {
+			//æœ€å¾Œã®æ–‡å­—ãŒ_ã ã£ãŸã‚‰
+			if(text.substr(text.length -1, 1) == "_") {
+				nameSet2();
+			}
+			else {
+				flag = confirm("é€£ç•ªã«ã—ã¾ã™ã‹ï¼Ÿ" + "ï¼ˆ1ã€œ"+allselLinkLysLength+"ï¼‰");
+				if (flag == true) nameSet2(); else nameSet();
+			}
+		}
+		}
+	}
+
+	else {
+		//æœ€åˆã®æ–‡å­—ãŒ?ã ã£ãŸã‚‰
+		if(text.substr(0, 1) == "?") {
+			nameSet4();
+		}
+		else {
+		if(text.substr(0, 1) == "_") {
+			nameSet3();
+		}
+		else {
+			//æœ€å¾Œã®æ–‡å­—ãŒ_ã ã£ãŸã‚‰
+			if(text.substr(text.length -1, 1) == "_") {
+				nameSet2();
+			}
+			else {
+				nameSet();
+			}
+		}
+		}
+	}
+ReSelected();
+}
+
+
+
+//å…¥åŠ›é€šã‚Šåå‰å…¥ã‚Œã‚‹
+function nameSet() {
+	for(i=0;i<allselLinkLysLength;i++)
+	{
+		allselLinkLys[i].name = text;
+	}
+}
+
+//é€£ç•ª
+function nameSet2() {
+	for(i=0;i<allselLinkLysLength;i++)
+	{
+		if (i < 9) var num = "0" + (i+1); else var num = (i+1);
+		allselLinkLys[i].name = text + num;
+	}
+}
+
+//_ãŒæœ€åˆã«ã¤ã„ã¦ã„ã‚‹å ´åˆã€æœ€å¾Œã«ã€Œ_testã€ã®ã‚ˆã†ã«å…¥ã‚Œã‚‹
+function nameSet3() {
+	for(i=0;i<allselLinkLysLength;i++){
+		allselLinkLys[i].name = allselLinkLys[i].name + text;
+	}
+}
+
+//?ãŒæœ€åˆã«ã¤ã„ã¦ã„ã‚‹å ´åˆã€æœ€åˆã«?ã¬ãã®æ–‡å­—ã‚’ã¤ã‘ã‚‹
+function nameSet4() {
+	for(i=0;i<allselLinkLysLength;i++)
+	{
+		allselLinkLys[i].name = text.substr(1, text.length) + allselLinkLys[i].name;
+	}
+}
+
+//é¸æŠãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’ãƒªãƒ³ã‚¯ä»˜ã‘
+function LinkSelLys() {
+	var lID1 = stringIDToTypeID( "linkSelectedLayers" );
+	var lDesc1 = new ActionDescriptor();
+	var lID2 = charIDToTypeID( "null" );
+	var lRef1 = new ActionReference();
+	var lID3 = charIDToTypeID( "Lyr " );
+	var lID4 = charIDToTypeID( "Ordn" );
+	var lID5 = charIDToTypeID( "Trgt" );
+	lRef1.putEnumerated( lID3, lID4, lID5 );
+	lDesc1.putReference( lID2, lRef1 );
+	executeAction( lID1, lDesc1, DialogModes.NO );
+}
+
+//é¸æŠãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ãƒªãƒ³ã‚¯è§£é™¤
+function UnLinkSelLys() {
+	var uID1 = stringIDToTypeID( "unlinkSelectedLayers" );
+	var uDesc1 = new ActionDescriptor();
+	var uID2 = charIDToTypeID( "null" );
+	var uRef1 = new ActionReference();
+	var uID3 = charIDToTypeID( "Lyr " );
+	var uID4 = charIDToTypeID( "Ordn" );
+	var uID5 = charIDToTypeID( "Trgt" );
+	uRef1.putEnumerated( uID3, uID4, uID5 );
+	uDesc1.putReference( uID2, uRef1 );
+	executeAction( uID1, uDesc1, DialogModes.NO );
+}
+
+//ä¸‹ã®ãƒ¬ã‚¤ãƒ¤ãƒ¼é¸æŠ
+function selectBottom() {
+	var idslct = charIDToTypeID( "slct" );
+	var desc1337 = new ActionDescriptor();
+	var idnull = charIDToTypeID( "null" );
+	var ref904 = new ActionReference();
+	var idLyr = charIDToTypeID( "Lyr " );
+	var idOrdn = charIDToTypeID( "Ordn" );
+	var idBckw = charIDToTypeID( "Bckw" );
+	ref904.putEnumerated( idLyr, idOrdn, idBckw );
+	desc1337.putReference( idnull, ref904 );
+	var idselectionModifier = stringIDToTypeID( "selectionModifier" );
+	var idselectionModifierType = stringIDToTypeID( "selectionModifierType" );
+	var idaddToSelection = stringIDToTypeID( "addToSelection" );
+	desc1337.putEnumerated( idselectionModifier, idselectionModifierType, idaddToSelection );
+	var idMkVs = charIDToTypeID( "MkVs" );
+	desc1337.putBoolean( idMkVs, false );
+	executeAction( idslct, desc1337, DialogModes.NO );
+}
+
+//ãƒªãƒ³ã‚¯ã•ã‚ŒãŸãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’å–å¾—
+function SelLy() {
+	var selLinkLys = activeLayer.linkedLayers;
+	linkLysLength = selLinkLys.length;
+	allselLinkLys[0] = activeLayer;
+	u = 1;
+	for(i=0;i<linkLysLength;i++)
+	{
+		allselLinkLys[u] = selLinkLys[i];
+		u++;
+	}
+	allselLinkLysLength = allselLinkLys.length
+}
+
+//é¸æŠ(Ctrl+Click)
+function ToggleSelect(TslName) {
+	var oID12 = charIDToTypeID( "slct" );
+	var oDesc3 = new ActionDescriptor();
+	var oID13 = charIDToTypeID( "null" );
+	var oRef3 = new ActionReference();
+	var oID14 = charIDToTypeID( "Lyr " );
+	oRef3.putName( oID14, TslName );
+	oDesc3.putReference( oID13, oRef3 );
+	var oID15 = stringIDToTypeID( "selectionModifier" );
+	var oID16 = stringIDToTypeID( "selectionModifierType" );
+	var oID17 = stringIDToTypeID( "addToSelection" );
+	oDesc3.putEnumerated( oID15, oID16, oID17 );
+	var oID18 = charIDToTypeID( "MkVs" );
+	oDesc3.putBoolean( oID18, false );
+	executeAction( oID12, oDesc3, DialogModes.NO );
+}
+
+//å…ƒã®ãƒ¬ã‚¤ãƒ¤ãƒ¼é¸æŠçŠ¶æ…‹ã«å¾©å…ƒ
+function ReSelected() {
+	activeDocument.activeLayer = allselLinkLys[0];
+	for(i=0;i<allselLinkLysLength;i++) {
+		ToggleSelect(allselLinkLys[i].name);
+	}
+}
+
+}

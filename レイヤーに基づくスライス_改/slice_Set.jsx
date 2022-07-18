@@ -1,10 +1,10 @@
-//‘I‘ğ‚µ‚Ä‚éƒIƒuƒWƒFƒNƒg
+//é¸æŠã—ã¦ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 var actDoc = activeDocument;
-//‘I‘ğ‚µ‚Ä‚éƒŒƒCƒ„[
+//é¸æŠã—ã¦ã‚‹ãƒ¬ã‚¤ãƒ¤ãƒ¼
 var layObj = activeDocument.activeLayer;
-//ƒŠƒ“ƒN‚³‚ê‚Ä‚¢‚éƒŒƒCƒ„[”z—ñ
+//ãƒªãƒ³ã‚¯ã•ã‚Œã¦ã„ã‚‹ãƒ¬ã‚¤ãƒ¤ãƒ¼é…åˆ—
 var allselLinkLys = new Array();
-//‘I‘ğ‚µ‚½ƒIƒuƒWƒFƒNƒgc‰¡”z—ñ
+//é¸æŠã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç¸¦æ¨ªé…åˆ—
 var W = new Array();
 var H = new Array();
 var W2 = new Array();
@@ -12,22 +12,22 @@ var H2 = new Array();
 var Wid = new Array();
 var Hei = new Array();
 
-//‘I‘ğ‚³‚ê‚Ä‚¢‚é”
+//é¸æŠã•ã‚Œã¦ã„ã‚‹æ•°
 var allselLinkLysLength;
 
 
 UnLinkSelLys();
-try@{
+tryã€€{
 LinkSelLys();
 }
-catch(e)@{}
+catch(e)ã€€{}
 finally{}
 
 SelLy();
 UnLinkSelLys();
 
 
-//‘I‘ğ‚µ‚Ä‚¢‚éƒIƒuƒWƒFƒNƒg‚ÌƒŒƒCƒ„[‚ÉŠî‚Ã‚­ƒXƒ‰ƒCƒX‚ğíœ
+//é¸æŠã—ã¦ã„ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒ¬ã‚¤ãƒ¤ãƒ¼ã«åŸºã¥ãã‚¹ãƒ©ã‚¤ã‚¹ã‚’å‰Šé™¤
 for(i=0;i<allselLinkLysLength;i++) {
 	W[i] = allselLinkLys[i].bounds[0];
 	H[i] = allselLinkLys[i].bounds[1];
@@ -38,7 +38,7 @@ for(i=0;i<allselLinkLysLength;i++) {
 	Wid[i] =  W2[i] - W[i];
 	Hei[i] =  H2[i] - H[i];
 
-	//alert(W[i]+Math.floor(Wid[i]/2) +" " + Wid[i],Math.floor(Hei[i]/2);//ƒNƒŠƒbƒNˆÊ’u
+	//alert(W[i]+Math.floor(Wid[i]/2) +" " + Wid[i],Math.floor(Hei[i]/2);//ã‚¯ãƒªãƒƒã‚¯ä½ç½®
 	selectSlice(W[i]+Math.floor(Wid[i]/2),H[i]+Hei[i]/2,false,Wid[i],Math.floor(Hei[i]/2));
 	sliceDel();
 }
@@ -51,12 +51,12 @@ for(i=0;i<allselLinkLysLength;i++)
 	nameSet(allselLinkLys[i].name);
 }
 
-//ƒXƒ‰ƒCƒX‘I‘ğ
+//ã‚¹ãƒ©ã‚¤ã‚¹é¸æŠ
 for(i=0;i<allselLinkLysLength;i++) {
 	selectSlice(W[i]+Math.floor(Wid[i]/2),H[i]+Hei[i]/2,true,Wid[i],Math.floor(Hei[i]/2));
 }
 
-//ƒŒƒCƒ„[‚ÉŠî‚Ã‚­ƒXƒ‰ƒCƒXì¬
+//ãƒ¬ã‚¤ãƒ¤ãƒ¼ã«åŸºã¥ãã‚¹ãƒ©ã‚¤ã‚¹ä½œæˆ
 function slice() {
 	var idMk = charIDToTypeID( "Mk  " );
 	var desc168 = new ActionDescriptor();
@@ -83,7 +83,7 @@ function slice() {
 	executeAction( idMk, desc168, DialogModes.NO );
 }
 
-//À•W‚ÅƒXƒ‰ƒCƒX‘I‘ğ
+//åº§æ¨™ã§ã‚¹ãƒ©ã‚¤ã‚¹é¸æŠ
 function selectSlice(x,y,shiftTF,wid,hei) {
 	var idslct = charIDToTypeID( "slct" );
 	var desc815 = new ActionDescriptor();
@@ -107,7 +107,7 @@ function selectSlice(x,y,shiftTF,wid,hei) {
 	executeAction( idslct, desc815, DialogModes.NO );
 }
 
-//–¼‘O‚ğ‚Â‚¯‚é
+//åå‰ã‚’ã¤ã‘ã‚‹
 function nameSet(name) {
 	var idsetd = charIDToTypeID( "setd" );
 	var desc205 = new ActionDescriptor();
@@ -131,7 +131,7 @@ function nameSet(name) {
 	executeAction( idsetd, desc205, DialogModes.NO );
 }
 
-//ƒXƒ‰ƒCƒXíœ
+//ã‚¹ãƒ©ã‚¤ã‚¹å‰Šé™¤
 function sliceDel() {
 	var idDlt = charIDToTypeID( "Dlt " );
 	var desc182 = new ActionDescriptor();
@@ -145,7 +145,7 @@ function sliceDel() {
 	executeAction( idDlt, desc182, DialogModes.NO );
 }
 
-//‘I‘ğƒŒƒCƒ„[‚ğƒŠƒ“ƒN•t‚¯
+//é¸æŠãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’ãƒªãƒ³ã‚¯ä»˜ã‘
 function LinkSelLys() {
 	var lID1 = stringIDToTypeID( "linkSelectedLayers" );
 	var lDesc1 = new ActionDescriptor();
@@ -159,7 +159,7 @@ function LinkSelLys() {
 	executeAction( lID1, lDesc1, DialogModes.NO );
 }
 
-//‘I‘ğƒŒƒCƒ„[‚ÌƒŠƒ“ƒN‰ğœ
+//é¸æŠãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ãƒªãƒ³ã‚¯è§£é™¤
 function UnLinkSelLys() {
 	var uID1 = stringIDToTypeID( "unlinkSelectedLayers" );
 	var uDesc1 = new ActionDescriptor();
@@ -173,7 +173,7 @@ function UnLinkSelLys() {
 	executeAction( uID1, uDesc1, DialogModes.NO );
 }
 
-//ƒŠƒ“ƒN‚³‚ê‚½ƒŒƒCƒ„[‚ğæ“¾
+//ãƒªãƒ³ã‚¯ã•ã‚ŒãŸãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’å–å¾—
 function SelLy() {
 	var selLinkLys = layObj.linkedLayers;
 	linkLysLength = selLinkLys.length;

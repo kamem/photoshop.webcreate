@@ -1,22 +1,23 @@
-//‘I‘ğ‚µ‚Ä‚éƒIƒuƒWƒFƒNƒg
+app.activeDocument.suspendHistory('ã€Œã®ã‚³ãƒ”ãƒ¼ã€ã‚’å‰Šé™¤', 'deleteNoCopy()')
+
+function deleteNoCopy() {
+
+//é¸æŠã—ã¦ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 var actDoc = activeDocument;
-//‘I‘ğ‚µ‚Ä‚éƒŒƒCƒ„[
+//é¸æŠã—ã¦ã‚‹ãƒ¬ã‚¤ãƒ¤ãƒ¼
 var layObj = activeDocument.activeLayer;
-//ƒŠƒ“ƒN‚³‚ê‚Ä‚¢‚éƒŒƒCƒ„[”z—ñ
+//ãƒªãƒ³ã‚¯ã•ã‚Œã¦ã„ã‚‹ãƒ¬ã‚¤ãƒ¤ãƒ¼é…åˆ—
 var allselLinkLys = new Array();
-//‘I‘ğ‚³‚ê‚Ä‚¢‚é”
+//é¸æŠã•ã‚Œã¦ã„ã‚‹æ•°
 var allselLinkLysLength;
 
-
-
-
-//ƒLƒƒƒ“ƒZƒ‹‰Ÿ‚³‚ê‚½‚çA‚»‚Ì‚Ü‚Ü
+//ã‚­ãƒ£ãƒ³ã‚»ãƒ«æŠ¼ã•ã‚ŒãŸã‚‰ã€ãã®ã¾ã¾
 UnLinkSelLys();
 
-try@{
+tryã€€{
 LinkSelLys();
 }
-catch(e)@{}
+catch(e)ã€€{}
 finally{}
 
 SelLy();
@@ -26,36 +27,15 @@ ReSelected();
 
 
 
-//“ü—Í’Ê‚è–¼‘O“ü‚ê‚é
+//å…¥åŠ›é€šã‚Šåå‰å…¥ã‚Œã‚‹
 function nameSet() {
 	for(i=0;i<allselLinkLysLength;i++) {
-	
-		if(!(allselLinkLys[i].name.indexOf(" ‚ÌƒRƒs[") == -1)) {
-		//Œã‚ë‚É”š‚ª‚Â‚¢‚Ä‚½‚ç Á‚·
-			if(allselLinkLys[i].name.substr(allselLinkLys[i].name.length -2, 1) == " ") {
-				allselLinkLys[i].name = allselLinkLys[i].name.replace(allselLinkLys[i].name.substr(allselLinkLys[i].name.length -2, 2), "");
-			}
-			else if(allselLinkLys[i].name.substr(allselLinkLys[i].name.length -3, 1) == " ") {
-				allselLinkLys[i].name = allselLinkLys[i].name.replace(allselLinkLys[i].name.substr(allselLinkLys[i].name.length -2, 2), "");
-			}
-			allselLinkLys[i].name = allselLinkLys[i].name.replace(" ‚ÌƒRƒs[", "");
-		}
-	}
-	
-	if(!(allselLinkLys[0].name.indexOf(" ‚ÌƒRƒs[") == -1)) {
-		if(allselLinkLys[0].name.substr(allselLinkLys[0].name.length -2, 1) == " ") {
-			allselLinkLys[0].name = allselLinkLys[0].name.replace(allselLinkLys[0].name.substr(allselLinkLys[0].name.length -2, 2), "");
-		}
-		else if(allselLinkLys[0].name.substr(allselLinkLys[0].name.length -3, 1) == " ") {
-			allselLinkLys[0].name = allselLinkLys[0].name.replace(allselLinkLys[0].name.substr(allselLinkLys[0].name.length -2, 2), "");
-		}
-		allselLinkLys[0].name = allselLinkLys[0].name.replace(" ‚ÌƒRƒs[", "");
+		allselLinkLys[i].name = allselLinkLys[i].name.replace(/ ã®ã‚³ãƒ”ãƒ¼.*$/g, '')
 	}
 }
 
 
-
-//‘I‘ğƒŒƒCƒ„[‚ğƒŠƒ“ƒN•t‚¯
+//é¸æŠãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’ãƒªãƒ³ã‚¯ä»˜ã‘
 function LinkSelLys() {
 	var lID1 = stringIDToTypeID( "linkSelectedLayers" );
 	var lDesc1 = new ActionDescriptor();
@@ -69,7 +49,7 @@ function LinkSelLys() {
 	executeAction( lID1, lDesc1, DialogModes.NO );
 }
 
-//‘I‘ğƒŒƒCƒ„[‚ÌƒŠƒ“ƒN‰ğœ
+//é¸æŠãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ãƒªãƒ³ã‚¯è§£é™¤
 function UnLinkSelLys() {
 	var uID1 = stringIDToTypeID( "unlinkSelectedLayers" );
 	var uDesc1 = new ActionDescriptor();
@@ -84,7 +64,7 @@ function UnLinkSelLys() {
 }
 
 
-//‰º‚ÌƒŒƒCƒ„[‘I‘ğ
+//ä¸‹ã®ãƒ¬ã‚¤ãƒ¤ãƒ¼é¸æŠ
 function selectBottom() {
 	var idslct = charIDToTypeID( "slct" );
 	var desc1337 = new ActionDescriptor();
@@ -104,7 +84,7 @@ function selectBottom() {
 	executeAction( idslct, desc1337, DialogModes.NO );
 }
 
-//ƒŠƒ“ƒN‚³‚ê‚½ƒŒƒCƒ„[‚ğæ“¾
+//ãƒªãƒ³ã‚¯ã•ã‚ŒãŸãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’å–å¾—
 function SelLy() {
 	var selLinkLys = layObj.linkedLayers;
 	linkLysLength = selLinkLys.length;
@@ -118,7 +98,7 @@ function SelLy() {
 	allselLinkLysLength = allselLinkLys.length
 }
 
-//‘I‘ğ(Ctrl+Click)
+//é¸æŠ(Ctrl+Click)
 function ToggleSelect(TslName) {
 	var oID12 = charIDToTypeID( "slct" );
 	var oDesc3 = new ActionDescriptor();
@@ -136,10 +116,11 @@ function ToggleSelect(TslName) {
 	executeAction( oID12, oDesc3, DialogModes.NO );
 }
 
-//Œ³‚ÌƒŒƒCƒ„[‘I‘ğó‘Ô‚É•œŒ³
+//å…ƒã®ãƒ¬ã‚¤ãƒ¤ãƒ¼é¸æŠçŠ¶æ…‹ã«å¾©å…ƒ
 function ReSelected() {
 	activeDocument.activeLayer = allselLinkLys[0];
 	for(i=0;i<allselLinkLysLength;i++) {
 		ToggleSelect(allselLinkLys[i].name);
 	}
+}
 }

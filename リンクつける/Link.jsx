@@ -1,1 +1,62 @@
-//‘I‘ğ‚µ‚Ä‚éƒIƒuƒWƒFƒNƒgvar actDoc = activeDocument;//‘I‘ğ‚µ‚Ä‚éƒŒƒCƒ„[var layObj = activeDocument.activeLayer;//ƒŠƒ“ƒN‚³‚ê‚Ä‚¢‚éƒŒƒCƒ„[”z—ñvar allselLinkLys = new Array();//‘I‘ğ‚³‚ê‚Ä‚¢‚é”var allselLinkLysLength;selLinkLys = layObj.linkedLayers;SelLy();if(0 < selLinkLys.length) {	UnLinkSelLys();}else {	try@{	LinkSelLys();	}	catch(e)@{}	finally{}}function LinkSelLys() {//‘I‘ğƒŒƒCƒ„[‚ğƒŠƒ“ƒN•t‚¯	var lID1 = stringIDToTypeID( "linkSelectedLayers" );	var lDesc1 = new ActionDescriptor();	var lID2 = charIDToTypeID( "null" );	var lRef1 = new ActionReference();	var lID3 = charIDToTypeID( "Lyr " );	var lID4 = charIDToTypeID( "Ordn" );	var lID5 = charIDToTypeID( "Trgt" );	lRef1.putEnumerated( lID3, lID4, lID5 );	lDesc1.putReference( lID2, lRef1 );	executeAction( lID1, lDesc1, DialogModes.NO );}function UnLinkSelLys() {//‘I‘ğƒŒƒCƒ„[‚ÌƒŠƒ“ƒN‰ğœ	var uID1 = stringIDToTypeID( "unlinkSelectedLayers" );	var uDesc1 = new ActionDescriptor();	var uID2 = charIDToTypeID( "null" );	var uRef1 = new ActionReference();	var uID3 = charIDToTypeID( "Lyr " );	var uID4 = charIDToTypeID( "Ordn" );	var uID5 = charIDToTypeID( "Trgt" );	uRef1.putEnumerated( uID3, uID4, uID5 );	uDesc1.putReference( uID2, uRef1 );	executeAction( uID1, uDesc1, DialogModes.NO );}function SelLy() {//ƒŠƒ“ƒN‚³‚ê‚½ƒŒƒCƒ„[‚ğæ“¾	var selLinkLys = layObj.linkedLayers;	linkLysLength = selLinkLys.length;	allselLinkLys[0] = layObj;	u = 1;	for(i=0;i<linkLysLength;i++)	{		allselLinkLys[u] = selLinkLys[i];		u++;	}	allselLinkLysLength = allselLinkLys.length;}
+//é¸æŠã—ã¦ã‚‹ãƒ¬ã‚¤ãƒ¤ãƒ¼
+const activeLayer = activeDocument.activeLayer;
+//ãƒªãƒ³ã‚¯ã•ã‚Œã¦ã„ã‚‹ãƒ¬ã‚¤ãƒ¤ãƒ¼é…åˆ—
+var allselLinkLys = new Array();
+//é¸æŠã•ã‚Œã¦ã„ã‚‹æ•°
+var allselLinkLysLength;
+
+
+selLinkLys = activeLayer.linkedLayers;
+SelLy();
+if(0 < selLinkLys.length) {
+	UnLinkSelLys();
+}
+else {
+	tryã€€{
+	LinkSelLys();
+	}
+	catch(e)ã€€{}
+	finally{}
+}
+
+function LinkSelLys() {
+//é¸æŠãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’ãƒªãƒ³ã‚¯ä»˜ã‘
+	var lID1 = stringIDToTypeID( "linkSelectedLayers" );
+	var lDesc1 = new ActionDescriptor();
+	var lID2 = charIDToTypeID( "null" );
+	var lRef1 = new ActionReference();
+	var lID3 = charIDToTypeID( "Lyr " );
+	var lID4 = charIDToTypeID( "Ordn" );
+	var lID5 = charIDToTypeID( "Trgt" );
+	lRef1.putEnumerated( lID3, lID4, lID5 );
+	lDesc1.putReference( lID2, lRef1 );
+	executeAction( lID1, lDesc1, DialogModes.NO );
+}
+
+function UnLinkSelLys() {
+//é¸æŠãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ãƒªãƒ³ã‚¯è§£é™¤
+	var uID1 = stringIDToTypeID( "unlinkSelectedLayers" );
+	var uDesc1 = new ActionDescriptor();
+	var uID2 = charIDToTypeID( "null" );
+	var uRef1 = new ActionReference();
+	var uID3 = charIDToTypeID( "Lyr " );
+	var uID4 = charIDToTypeID( "Ordn" );
+	var uID5 = charIDToTypeID( "Trgt" );
+	uRef1.putEnumerated( uID3, uID4, uID5 );
+	uDesc1.putReference( uID2, uRef1 );
+	executeAction( uID1, uDesc1, DialogModes.NO );
+}
+
+function SelLy() {
+//ãƒªãƒ³ã‚¯ã•ã‚ŒãŸãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’å–å¾—
+	var selLinkLys = activeLayer.linkedLayers;
+	linkLysLength = selLinkLys.length;
+	allselLinkLys[0] = activeLayer;
+	u = 1;
+	for(i=0;i<linkLysLength;i++)
+	{
+		allselLinkLys[u] = selLinkLys[i];
+		u++;
+	}
+	allselLinkLysLength = allselLinkLys.length;
+}
