@@ -6,8 +6,6 @@ function changeLayerName() {
 const activeLayer = activeDocument.activeLayer;
 //リンクされているレイヤー配列
 const allselLinkLys = [];
-//選択されている数
-var allselLinkLysLength;
 
 const editWindow = new Window("dialog","レイヤー名変更",[300,300,700,530]);
 editWindow.center();
@@ -201,16 +199,14 @@ function selectBottom() {
 
 //リンクされたレイヤーを取得
 function SelLy() {
-	var selLinkLys = activeLayer.linkedLayers;
-	linkLysLength = selLinkLys.length;
+	const selLinkLys = activeLayer.linkedLayers;
 	allselLinkLys[0] = activeLayer;
 	u = 1;
-	for(i=0;i<linkLysLength;i++)
+	for(i=0; i < selLinkLys.length; i++)
 	{
 		allselLinkLys[u] = selLinkLys[i];
 		u++;
 	}
-	allselLinkLysLength = allselLinkLys.length
 }
 
 //選択(Ctrl+Click)
@@ -234,8 +230,7 @@ function ToggleSelect(TslName) {
 
 //元のレイヤー選択状態に復元
 function ReSelected() {
-	// activeDocument.activeLayer = allselLinkLys[0];
-	for(i=0;i<allselLinkLysLength;i++) {
+	for(i=0;i<allselLinkLys.length;i++) {
 		ToggleSelect(allselLinkLys[i].name);
 	}
 }
